@@ -1,3 +1,4 @@
+
 -- customize mason plugins
 return {
   -- use mason-lspconfig to configure LSP installations
@@ -7,8 +8,10 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
-        -- "lua_ls",
+        "lua_ls",
         "pyright",
+        "texlab",  -- Add texlab for LaTeX support
+        "jedi_language_server",  -- Ensure Jedi language server is installed
       })
     end,
   },
@@ -19,8 +22,12 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
-        -- "prettier",
-        -- "stylua",
+        "prettier",
+        "stylua",
+        "black",
+        "flake8",
+        "isort",
+        "latexindent",  -- Add latexindent for LaTeX formatting
       })
     end,
   },
@@ -30,8 +37,9 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
-        -- "python",
+        "python",  -- Ensure DAP support for Python
       })
     end,
   },
 }
+
